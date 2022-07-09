@@ -12,8 +12,13 @@ $('ul').on('click', 'span', function(event){
 $("input[type='text'").on('keypress', function(event){
     if(event.which === 13){
         var todoText = $(this).val();
-        $(this).val('');
+        if(todoText.length > 60){
+            $(this).val('');
+            alert("Todo too long!")
+        }else{
+            $(this).val('');
         $('ul').append('<li><span><img src="Assets/fontawesome-free-6.1.1-desktop/svgs/regular/trash-can.svg" alt=""> </span> ' + todoText +'</li>')
+        }
     }
 });
 $('h1 img').on('click', function(){
